@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adftumblingwindow4"
+		},
+		"SqlServerLinkedServernew_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServerLinkedServernew'"
+		},
+		"ls_azureblob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_azureblob'"
+		},
+		"DynamicLinkedserver_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost"
+		},
+		"DynamicLinkedserver_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().databasename_param}"
+		},
+		"DynamicLinkedserver_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().username_dynamic}"
+		},
+		"SqlServerLinkedServernew_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-CADEHRN\\SQLEXPRESS"
+		},
+		"SqlServerLinkedServernew_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "test"
+		},
+		"SqlServerLinkedServernew_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "cloudlogin"
+		},
+		"linkedserversqlserver3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().servername}"
+		},
+		"linkedserversqlserver3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().databasename}"
+		},
+		"linkedserversqlserver3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "@{linkedService().username}"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/23c2abed-3486-4f68-b619-a76ddbbe4a76/resourceGroups/rs_usa_east/providers/Microsoft.Storage/storageAccounts/useaststorage44"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adftumblingwindow4_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_azureblob_connectionString": {
+						"value": "[parameters('ls_azureblob_connectionString')]"
+					},
+					"SqlServerLinkedServernew_password": {
+						"value": "[parameters('SqlServerLinkedServernew_password')]"
+					},
+					"DynamicLinkedserver_properties_typeProperties_server": {
+						"value": "[parameters('DynamicLinkedserver_properties_typeProperties_server')]"
+					},
+					"DynamicLinkedserver_properties_typeProperties_database": {
+						"value": "[parameters('DynamicLinkedserver_properties_typeProperties_database')]"
+					},
+					"DynamicLinkedserver_properties_typeProperties_userName": {
+						"value": "[parameters('DynamicLinkedserver_properties_typeProperties_userName')]"
+					},
+					"linkedserversqlserver3_properties_typeProperties_server": {
+						"value": "[parameters('linkedserversqlserver3_properties_typeProperties_server')]"
+					},
+					"linkedserversqlserver3_properties_typeProperties_database": {
+						"value": "[parameters('linkedserversqlserver3_properties_typeProperties_database')]"
+					},
+					"linkedserversqlserver3_properties_typeProperties_userName": {
+						"value": "[parameters('linkedserversqlserver3_properties_typeProperties_userName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					},
+					"SqlServerLinkedServernew_properties_typeProperties_server": {
+						"value": "[parameters('SqlServerLinkedServernew_properties_typeProperties_server')]"
+					},
+					"SqlServerLinkedServernew_properties_typeProperties_database": {
+						"value": "[parameters('SqlServerLinkedServernew_properties_typeProperties_database')]"
+					},
+					"SqlServerLinkedServernew_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServerLinkedServernew_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

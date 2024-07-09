@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adftumblingwindow4"
+		},
+		"SqlServerLinkedServernew_password": {
+			"value": ""
+		},
+		"ls_azureblob_connectionString": {
+			"value": ""
+		},
+		"DynamicLinkedserver_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"DynamicLinkedserver_properties_typeProperties_database": {
+			"value": "@{linkedService().databasename_param}"
+		},
+		"DynamicLinkedserver_properties_typeProperties_userName": {
+			"value": "@{linkedService().username_dynamic}"
+		},
+		"SqlServerLinkedServernew_properties_typeProperties_server": {
+			"value": "DESKTOP-CADEHRN\\SQLEXPRESS"
+		},
+		"SqlServerLinkedServernew_properties_typeProperties_database": {
+			"value": "test"
+		},
+		"SqlServerLinkedServernew_properties_typeProperties_userName": {
+			"value": "cloudlogin"
+		},
+		"linkedserversqlserver3_properties_typeProperties_server": {
+			"value": "@{linkedService().servername}"
+		},
+		"linkedserversqlserver3_properties_typeProperties_database": {
+			"value": "@{linkedService().databasename}"
+		},
+		"linkedserversqlserver3_properties_typeProperties_userName": {
+			"value": "@{linkedService().username}"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/23c2abed-3486-4f68-b619-a76ddbbe4a76/resourceGroups/rs_usa_east/providers/Microsoft.Storage/storageAccounts/useaststorage44"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
