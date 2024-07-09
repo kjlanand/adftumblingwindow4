@@ -1,0 +1,28 @@
+{
+	"name": "DynamicLinkedserver",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"databasename_param": {
+				"type": "String"
+			},
+			"username_dynamic": {
+				"type": "String"
+			},
+			"password_param": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost",
+			"database": "@{linkedService().databasename_param}",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "@{linkedService().username_dynamic}",
+			"password": "@{linkedService().password_param}"
+		}
+	}
+}

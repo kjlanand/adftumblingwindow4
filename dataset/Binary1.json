@@ -1,0 +1,27 @@
+{
+	"name": "Binary1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_azureblob",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ds_foldername": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().ds_foldername",
+					"type": "Expression"
+				},
+				"container": "output"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

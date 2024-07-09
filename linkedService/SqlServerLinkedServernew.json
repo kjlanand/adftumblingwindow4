@@ -1,0 +1,21 @@
+{
+	"name": "SqlServerLinkedServernew",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-CADEHRN\\SQLEXPRESS",
+			"database": "test",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "cloudlogin",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhNTY5N2MxZS0wZDhkLTQ4NjUtOTQ1MC0zMTk5YjBhNzVhNGYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SelfHostedIntergrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

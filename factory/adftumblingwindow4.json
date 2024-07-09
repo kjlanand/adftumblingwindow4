@@ -1,0 +1,9 @@
+{
+	"name": "adftumblingwindow4",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5420aacb-2b72-48e2-b4d0-19baa72fde78",
+		"tenantId": "8703d904-19da-405a-b075-001aec8ee55e"
+	}
+}
