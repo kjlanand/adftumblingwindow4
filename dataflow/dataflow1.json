@@ -73,9 +73,6 @@
 					"name": "select1"
 				},
 				{
-					"name": "derivedColumn2"
-				},
-				{
 					"name": "union1"
 				}
 			],
@@ -144,7 +141,6 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				" derive(empname = upper(empname)) ~> derivedColumn2",
 				"empsource union(byName: true)~> union1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
